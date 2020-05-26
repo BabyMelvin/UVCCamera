@@ -25,7 +25,9 @@ package com.serenegiant.usbcameratest;
 
 import android.graphics.SurfaceTexture;
 import android.hardware.usb.UsbDevice;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.view.Surface;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -93,6 +95,7 @@ public final class MainActivity extends BaseActivity implements CameraDialog.Cam
 		super.onStop();
 	}
 
+	@RequiresApi(api = Build.VERSION_CODES.N)
 	@Override
 	protected void onDestroy() {
 		synchronized (mSync) {
@@ -220,7 +223,7 @@ public final class MainActivity extends BaseActivity implements CameraDialog.Cam
 		}
 
 		@Override
-		public void onDettach(final UsbDevice device) {
+		public void onDetach(final UsbDevice device) {
 			Toast.makeText(MainActivity.this, "USB_DEVICE_DETACHED", Toast.LENGTH_SHORT).show();
 		}
 

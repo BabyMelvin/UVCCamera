@@ -836,7 +836,10 @@ public class UVCCamera {
     /**
      * @return hue[%]
      */
-	public synchronized int getHue() {
+	public synchronized int getHue()
+
+
+	{
     	return getHue(nativeGetHue(mNativePtr));
     }
 
